@@ -21,7 +21,8 @@ public class ErrorHandling: ObservableObject {
         currentAlert = nil
     }
 
-    public func handle(error: Error) {
+    public func handle(error: Error, file: String = #file, line: Int = #line) {
+        log.error(file: file, line: line, error)
         currentAlert = ErrorAlert(message: error.localizedDescription, error: error)
     }
 }

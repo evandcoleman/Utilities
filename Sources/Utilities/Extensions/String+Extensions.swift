@@ -15,6 +15,10 @@ public extension String {
         return addingPercentEncoding(withAllowedCharacters: customAllowedSet)!
     }
 
+    var urlQueryEncoded: String? {
+        return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    }
+
     var nilIfEmpty: Self? {
         return isEmpty ? nil : self
     }

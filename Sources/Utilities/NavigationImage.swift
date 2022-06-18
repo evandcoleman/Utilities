@@ -11,8 +11,6 @@ public struct NavigationImage: View {
 
     public var image: Image
 
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
     public var body: some View {
         image
             .resizable()
