@@ -65,3 +65,21 @@ extension String {
         return image!
     }
 }
+
+extension String {
+    public func markdownifyURLs() -> AttributedString {
+        guard let regex = try? NSRegularExpression(
+            pattern: "(?i)\\b((?:[a-z][\\w-]+:(?:/{1,3}|[a-z0-9%])|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?«»“”‘’]))",
+            options: [.anchorsMatchLines]
+        ) else { return AttributedString(self) }
+
+        let markdownText = regex.stringByReplacingMatches(
+            in: self,
+            options: [],
+            range: NSRange(startIndex..<endIndex, in: self),
+            withTemplate: "[$1]($1)"
+        )
+
+        return (try? AttributedString(markdown: markdownText)) ?? AttributedString(self)
+    }
+}

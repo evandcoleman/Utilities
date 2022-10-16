@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Binding {
-    public func print(file: String = #file, line: Int = #line) -> Self {
+    public func print(file: String = #file, line: UInt = #line) -> Self {
         return .init {
             log.debug(file: file, line: line, "[\(String(describing: type(of: self))).get]", self.wrappedValue)
 
@@ -18,5 +18,18 @@ extension Binding {
 
             self.wrappedValue = newValue
         }
+    }
+}
+
+extension Binding {
+    public func optional() -> Binding<Value?> {
+        return .init(
+            get: { self.wrappedValue },
+            set: { newValue in
+                if let newValue = newValue {
+                    self.wrappedValue = newValue
+                }
+            }
+        )
     }
 }

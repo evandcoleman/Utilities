@@ -21,7 +21,9 @@ public class ErrorHandling: ObservableObject {
         currentAlert = nil
     }
 
-    public func handle(error: Error, file: String = #file, line: Int = #line) {
+    public func handle(error: Error, file: String = #file, line: UInt = #line) {
+        guard !error.isCancelled else { return }
+
         log.error(file: file, line: line, error)
         currentAlert = ErrorAlert(message: error.localizedDescription, error: error)
     }
@@ -54,5 +56,11 @@ public struct HandleErrorsByShowingAlertViewModifier: ViewModifier {
 extension View {
     public func handlingErrors() -> some View {
         modifier(HandleErrorsByShowingAlertViewModifier())
+    }
+}
+
+extension Error {
+    var isCancelled: Bool {
+        return self is CancellationError
     }
 }
