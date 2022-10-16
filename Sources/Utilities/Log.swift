@@ -85,16 +85,16 @@ public final class Log {
     }
 
     public struct Message {
-        let level: Level
-        let message: [Any]
-        let file: String
-        let line: UInt
+        public let level: Level
+        public let message: [Any]
+        public let file: String
+        public let line: UInt
 
-        var filename: String {
+        public var filename: String {
             return URL(fileURLWithPath: file).lastPathComponent
         }
 
-        var formatted: String {
+        public var formatted: String {
             return "\(level.prefix) | [\(filename):\(line)] | \(message.flatMap { $0 as? [Any] ?? [$0] }.map { String(describing: $0) } .joined(separator: " "))"
         }
     }
