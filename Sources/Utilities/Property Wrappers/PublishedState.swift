@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 12/5/21.
 //
 
+#if canImport(SwiftUI)
 import Combine
 import SwiftUI
 
@@ -122,3 +123,4 @@ public extension View {
         ))
     }
 }
+#endif

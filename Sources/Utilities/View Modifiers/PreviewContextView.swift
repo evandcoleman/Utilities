@@ -5,9 +5,9 @@
 //  Created by Evan Coleman on 1/26/22.
 //
 
+#if os(iOS)
 import SwiftUI
 
-#if os(iOS)
 public struct PreviewContextMenu<Content: View> {
     public let destination: Content
     public let actionProvider: UIContextMenuActionProvider?

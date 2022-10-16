@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 12/31/21.
 //
 
+#if canImport(SwiftUI)
 import Foundation
 import SwiftUI
 
@@ -27,3 +28,4 @@ public struct RoundedRectangleButtonStyle: ButtonStyle {
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
 }
+#endif

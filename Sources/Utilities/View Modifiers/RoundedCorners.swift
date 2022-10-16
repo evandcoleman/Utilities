@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 5/21/21.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct RoundedCorners: Shape {
@@ -23,3 +24,4 @@ public extension View {
         clipShape(RoundedCorners(radius: radius, corners: corners))
     }
 }
+#endif

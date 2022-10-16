@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/27/22.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct ProgressOverlay: View {
@@ -45,3 +46,4 @@ public extension View {
         }
     }
 }
+#endif

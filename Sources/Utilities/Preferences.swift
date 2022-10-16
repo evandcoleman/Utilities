@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 public struct Preferences {
 
@@ -119,6 +118,8 @@ private class PropertyList {
     }
 }
 
+#if canImport(SwiftUI)
+import SwiftUI
 private struct PreferencesKey: EnvironmentKey {
     static let defaultValue: Binding<Preferences> = .constant(.standard)
 }
@@ -129,3 +130,4 @@ public extension EnvironmentValues {
         set { self[PreferencesKey.self] = newValue }
     }
 }
+#endif

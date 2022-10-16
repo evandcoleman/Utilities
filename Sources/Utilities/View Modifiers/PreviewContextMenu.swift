@@ -5,9 +5,9 @@
 //  Created by Evan Coleman on 3/20/22.
 //
 
+#if os(iOS)
 import SwiftUI
 
-#if os(iOS)
 import Introspect
 
 struct PreviewContextMenuModifier<Preview: View>: ViewModifier {

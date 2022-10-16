@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 7/2/22.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct CardView<Content: View>: View {
@@ -41,3 +42,4 @@ public extension View {
 //        CardView()
 //    }
 //}
+#endif

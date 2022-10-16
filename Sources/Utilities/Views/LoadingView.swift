@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/8/22.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct LoadingView: View {
@@ -29,3 +30,4 @@ struct LoadingView_Previews: PreviewProvider {
         LoadingView()
     }
 }
+#endif

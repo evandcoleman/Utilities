@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 5/21/21.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct SearchBar<RightContent: View>: View {
@@ -88,3 +89,4 @@ public struct SearchBar<RightContent: View>: View {
 //        SearchBar("Search...", text: .constant(""))
 //    }
 //}
+#endif

@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/11/22.
 //
 
+#if canImport(SwiftUI)
 import SFSafeSymbols
 import SwiftUI
 
@@ -248,3 +249,4 @@ private extension SFSymbol {
         rawValue.components(separatedBy: ".")[0].localizedCapitalized
     }
 }
+#endif

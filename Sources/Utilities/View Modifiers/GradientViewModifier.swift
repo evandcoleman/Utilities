@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/10/22.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 struct GradientViewModifier: ViewModifier {
@@ -25,3 +26,4 @@ extension View {
         modifier(GradientViewModifier(maxOpacity: maxOpacity))
     }
 }
+#endif

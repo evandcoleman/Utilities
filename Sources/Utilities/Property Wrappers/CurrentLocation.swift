@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 1/10/22.
 //
 
+#if canImport(SwiftUI)
 import CoreLocation
 import Foundation
 import SwiftUI
@@ -72,3 +73,4 @@ public extension CurrentLocation {
         }
     }
 }
+#endif

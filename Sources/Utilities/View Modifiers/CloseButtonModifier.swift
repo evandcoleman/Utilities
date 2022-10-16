@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/7/22.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 struct CloseButtonModifier: ViewModifier {
@@ -26,3 +27,4 @@ public extension View {
         return modifier(CloseButtonModifier(action: action))
     }
 }
+#endif

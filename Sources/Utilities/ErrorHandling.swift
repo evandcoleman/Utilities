@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 1/24/22.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct ErrorAlert: Identifiable {
@@ -64,3 +65,4 @@ extension Error {
         return self is CancellationError
     }
 }
+#endif

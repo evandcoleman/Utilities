@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 1/13/21.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 public struct NavigationImage: View {
@@ -32,3 +33,4 @@ public struct NavigationImage: View {
 //        NavigationButton()
 //    }
 //}
+#endif

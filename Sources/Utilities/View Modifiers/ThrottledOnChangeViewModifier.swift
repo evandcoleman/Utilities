@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 7/25/21.
 //
 
+#if canImport(SwiftUI)
 import SwiftUI
 
 extension View {
@@ -39,3 +40,4 @@ public struct ThrottledOnChangeViewModifier<Value: Equatable>: ViewModifier {
             }
     }
 }
+#endif
