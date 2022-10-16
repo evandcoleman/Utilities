@@ -68,18 +68,6 @@ public extension Color {
 
         return (r, g, b, o)
     }
-
-    init(hex: String) {
-        let components = hexStringToColorComponents(hex)
-
-        self.init(
-            .sRGB,
-            red: components.red / 255,
-            green: components.green / 255,
-            blue:  components.blue / 255,
-            opacity: components.alpha / 255
-        )
-    }
 }
 #endif
 
@@ -106,6 +94,24 @@ public extension UIColor {
         getRed(&r, green: &g, blue: &b, alpha: &a)
 
         return colorComponentsToHexString(r, g, b)
+    }
+}
+#endif
+
+#if canImport(SwiftUI)
+import SwiftUI
+
+extension Color {
+    init(hex: String) {
+        let components = hexStringToColorComponents(hex)
+
+        self.init(
+            .sRGB,
+            red: components.red / 255,
+            green: components.green / 255,
+            blue:  components.blue / 255,
+            opacity: components.alpha / 255
+        )
     }
 }
 #endif
