@@ -5,7 +5,7 @@
 //  Created by Evan Coleman on 1/10/22.
 //
 
-#if canImport(SwiftUI)
+#if os(iOS)
 import CoreLocation
 import Foundation
 import SwiftUI
