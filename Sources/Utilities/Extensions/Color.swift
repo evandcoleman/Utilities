@@ -52,6 +52,32 @@ public extension Color {
     init(light: Color, dark: Color) {
         self.init(light: UIColor(light), dark: UIColor(dark))
     }
+
+    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
+
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var o: CGFloat = 0
+
+        guard UIColor(self).getRed(&r, green: &g, blue: &b, alpha: &o) else {
+            return (0, 0, 0, 0)
+        }
+
+        return (r, g, b, o)
+    }
+
+    init(hex: String) {
+        let components = hexStringToColorComponents(hex)
+
+        self.init(
+            .sRGB,
+            red: components.red / 255,
+            green: components.green / 255,
+            blue:  components.blue / 255,
+            opacity: components.alpha / 255
+        )
+    }
 }
 #endif
 
@@ -78,39 +104,6 @@ public extension UIColor {
         getRed(&r, green: &g, blue: &b, alpha: &a)
 
         return colorComponentsToHexString(r, g, b)
-    }
-}
-#endif
-
-#if canImport(SwiftUI)
-import SwiftUI
-public extension Color {
-
-    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
-        typealias NativeColor = UIColor
-
-        var r: CGFloat = 0
-        var g: CGFloat = 0
-        var b: CGFloat = 0
-        var o: CGFloat = 0
-
-        guard NativeColor(self).getRed(&r, green: &g, blue: &b, alpha: &o) else {
-            return (0, 0, 0, 0)
-        }
-
-        return (r, g, b, o)
-    }
-
-    init(hex: String) {
-        let components = hexStringToColorComponents(hex)
-
-        self.init(
-            .sRGB,
-            red: components.red / 255,
-            green: components.green / 255,
-            blue:  components.blue / 255,
-            opacity: components.alpha / 255
-        )
     }
 }
 #endif
