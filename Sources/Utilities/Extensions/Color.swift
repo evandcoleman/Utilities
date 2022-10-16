@@ -102,7 +102,7 @@ public extension UIColor {
 import SwiftUI
 
 extension Color {
-    init(hex: String) {
+    public init(hex: String) {
         let components = hexStringToColorComponents(hex)
 
         self.init(
