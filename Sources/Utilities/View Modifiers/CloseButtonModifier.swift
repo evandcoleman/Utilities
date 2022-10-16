@@ -5,7 +5,7 @@
 //  Created by Evan Coleman on 6/7/22.
 //
 
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && canImport(UIKit)
 import SwiftUI
 
 struct CloseButtonModifier: ViewModifier {
