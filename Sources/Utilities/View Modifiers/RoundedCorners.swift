@@ -5,8 +5,9 @@
 //  Created by Evan Coleman on 5/21/21.
 //
 
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && canImport(UIKit)
 import SwiftUI
+import UIKit
 
 public struct RoundedCorners: Shape {
 

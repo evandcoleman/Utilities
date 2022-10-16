@@ -5,8 +5,10 @@
 //  Created by Evan Coleman on 11/23/21.
 //
 
+#if canImport(UIKit)
 import CoreLocation
 import MapKit
+import UIKit
 
 public extension MKCoordinateRegion {
     var radius: Double {
@@ -59,3 +61,4 @@ public extension MKCoordinateRegion {
         return MKCoordinateRegion(MKMapRect(x: rect.origin.x, y: rect.origin.y, width: rect.width, height: rect.height))
     }
 }
+#endif

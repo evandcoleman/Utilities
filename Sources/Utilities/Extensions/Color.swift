@@ -6,6 +6,8 @@
 //  Copyright © 2020 Evan Coleman. All rights reserved.
 //
 
+import Foundation
+
 private func hexStringToColorComponents(_ hex: String) -> (alpha: Double, red: Double, green: Double, blue: Double) {
     let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
     var int: UInt64 = 0

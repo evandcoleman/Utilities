@@ -5,8 +5,9 @@
 //  Created by Evan Coleman on 6/8/22.
 //
 
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && canImport(UIKit)
 import SwiftUI
+import UIKit
 import WebKit
 
 public struct WebView: UIViewRepresentable {
