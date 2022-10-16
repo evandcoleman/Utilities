@@ -6,10 +6,11 @@
 //
 
 import Foundation
+#if os(iOS)
 import SwiftUI
 import UIKit
 
-#if os(iOS)
+
 struct OpaqueNavigationBarModifier: ViewModifier {
 
     func body(content: Content) -> some View {

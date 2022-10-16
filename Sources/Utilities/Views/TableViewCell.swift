@@ -3,6 +3,7 @@
 //  Copyright © 2017 Evan Coleman. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 final class TableViewCell<Subject: UIView>: UITableViewCell, Reusable where Subject: ReusableView {
@@ -39,3 +40,4 @@ final class TableViewCell<Subject: UIView>: UITableViewCell, Reusable where Subj
         subjectView.prepareForReuse()
     }
 }
+#endif

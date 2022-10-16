@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 1/25/22.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension CGRect {
@@ -28,3 +29,4 @@ public extension CGRect {
         return CGPoint(x: midX, y: midY)
     }
 }
+#endif

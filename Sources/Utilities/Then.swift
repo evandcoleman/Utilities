@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 public protocol Then {}
 
@@ -27,7 +26,12 @@ public extension Then where Self: Any {
 }
 
 extension NSObject: Then {}
+extension URLRequest: Then {}
+
+#if canImport(UIKit)
+import UIKit
+
 extension CGPoint: Then {}
 extension CGSize: Then {}
 extension CGRect: Then {}
-extension URLRequest: Then {}
+#endif

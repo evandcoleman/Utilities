@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 public extension String {
     var urlEncoded: String {
@@ -44,6 +43,8 @@ extension String {
     }
 }
 
+#if canImport(UIKit)
+import UIKit
 extension String {
     public func asImage(pointSize: CGFloat) -> UIImage {
         let attributedString = NSAttributedString(string: self, attributes: [
@@ -65,6 +66,7 @@ extension String {
         return image!
     }
 }
+#endif
 
 extension String {
     public func markdownifyURLs() -> AttributedString {

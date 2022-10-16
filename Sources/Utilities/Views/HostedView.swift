@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/14/22.
 //
 
+#if canImport(UIKit)
 import SwiftUI
 import UIKit
 
@@ -24,3 +25,4 @@ public struct HostedView<T: UIView>: UIViewRepresentable {
 
     }
 }
+#endif

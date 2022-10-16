@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/14/22.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension UIView {
@@ -17,3 +18,4 @@ extension UIView {
         ])
     }
 }
+#endif

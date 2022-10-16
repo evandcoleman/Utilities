@@ -6,8 +6,8 @@
 //  Copyright © 2020 Evan Coleman. All rights reserved.
 //
 
-import SwiftUI
 #if canImport(UIKit)
+import SwiftUI
 import UIKit
 
 private func hexStringToColorComponents(_ hex: String) -> (alpha: Double, red: Double, green: Double, blue: Double) {
@@ -35,7 +35,6 @@ private func colorComponentsToHexString(_ red: Double, _ green: Double, _ blue: 
     return String(format:"#%06x", rgb)
 }
 
-#if os(iOS)
 public extension Color {
 
     var hex: String { UIColor(self).toHexString() }
@@ -55,7 +54,6 @@ public extension Color {
         self.init(light: UIColor(light), dark: UIColor(dark))
     }
 }
-#endif
 
 public extension UIColor {
     convenience init(hex: String) {
@@ -80,16 +78,11 @@ public extension UIColor {
         return colorComponentsToHexString(r, g, b)
     }
 }
-#endif
 
 public extension Color {
 
     var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
-        #if canImport(UIKit)
         typealias NativeColor = UIColor
-        #elseif canImport(AppKit)
-        typealias NativeColor = NSColor
-        #endif
 
         var r: CGFloat = 0
         var g: CGFloat = 0
@@ -115,3 +108,4 @@ public extension Color {
         )
     }
 }
+#endif

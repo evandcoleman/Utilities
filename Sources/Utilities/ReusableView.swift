@@ -3,6 +3,7 @@
 //  Copyright © 2017 Evan Coleman. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol ReusableView: AnyObject {
@@ -14,3 +15,4 @@ extension UILabel: ReusableView {
         text = nil
     }
 }
+#endif

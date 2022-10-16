@@ -3,6 +3,7 @@
 //  Copyright © 2017 Evan Coleman. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol CollectionViewCellProtocol {
@@ -52,3 +53,4 @@ public final class CollectionViewCell<Subject: UIView>: UICollectionViewCell, Re
         subjectView.prepareForReuse()
     }
 }
+#endif

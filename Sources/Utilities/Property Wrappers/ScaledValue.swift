@@ -6,9 +6,10 @@
 //
 
 import Foundation
+#if os(iOS)
 import UIKit
 
-#if os(iOS)
+
 @propertyWrapper
 public struct ScaledValue<Value> where Value: BinaryFloatingPoint {
 

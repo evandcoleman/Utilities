@@ -5,10 +5,10 @@
 //  Created by Evan Coleman on 1/13/21.
 //
 
+#if os(iOS)
 import SwiftUI
 import UIKit
 
-#if os(iOS)
 public struct CloseButton: View {
 
     public var action: () -> Void
