@@ -25,7 +25,7 @@ extension Date {
     }
 
     public var dateComponents: DateComponents {
-        return Calendar.current.dateComponents([.day, .month, .year], from: self)
+        return Calendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: self)
     }
 
     public var tomorrow: Date {
