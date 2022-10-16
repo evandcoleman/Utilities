@@ -5,9 +5,10 @@
 //  Created by Evan Coleman on 6/11/22.
 //
 
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && canImport(UIKit)
 import SFSafeSymbols
 import SwiftUI
+import UIKit
 
 private let colors: [Color] = [
     Color(hex: "da5d5d"),
