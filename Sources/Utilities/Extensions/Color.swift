@@ -56,6 +56,7 @@ public extension Color {
 #endif
 
 #if canImport(UIKit)
+import UIKit
 public extension UIColor {
     convenience init(hex: String) {
         let components = hexStringToColorComponents(hex)
@@ -82,6 +83,7 @@ public extension UIColor {
 #endif
 
 #if canImport(SwiftUI)
+import SwiftUI
 public extension Color {
 
     var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
