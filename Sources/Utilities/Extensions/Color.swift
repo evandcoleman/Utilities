@@ -6,10 +6,6 @@
 //  Copyright © 2020 Evan Coleman. All rights reserved.
 //
 
-#if canImport(UIKit)
-import SwiftUI
-import UIKit
-
 private func hexStringToColorComponents(_ hex: String) -> (alpha: Double, red: Double, green: Double, blue: Double) {
     let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
     var int: UInt64 = 0
@@ -35,6 +31,9 @@ private func colorComponentsToHexString(_ red: Double, _ green: Double, _ blue: 
     return String(format:"#%06x", rgb)
 }
 
+#if canImport(SwiftUI) && canImport(UIKit)
+import SwiftUI
+import UIKit
 public extension Color {
 
     var hex: String { UIColor(self).toHexString() }
@@ -54,7 +53,9 @@ public extension Color {
         self.init(light: UIColor(light), dark: UIColor(dark))
     }
 }
+#endif
 
+#if canImport(UIKit)
 public extension UIColor {
     convenience init(hex: String) {
         let components = hexStringToColorComponents(hex)
@@ -78,7 +79,9 @@ public extension UIColor {
         return colorComponentsToHexString(r, g, b)
     }
 }
+#endif
 
+#if canImport(SwiftUI)
 public extension Color {
 
     var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
