@@ -95,7 +95,7 @@ public final class Log {
         }
 
         public var formatted: String {
-            return "\(level.prefix) | [\(filename):\(line)] | \(message.flatMap { $0 as? [Any] ?? [$0] }.map { String(describing: $0) } .joined(separator: " "))"
+            return "\(Date.now.formatted(date: .omitted, time: .shortened)) \(level.prefix) | [\(filename):\(line)] | \(message.flatMap { $0 as? [Any] ?? [$0] }.map { String(describing: $0) } .joined(separator: " "))"
         }
     }
 }
