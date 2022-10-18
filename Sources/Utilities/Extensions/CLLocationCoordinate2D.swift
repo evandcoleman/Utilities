@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 12/29/20.
 //
 
+#if canImport(CoreLocation)
 import CoreLocation
 import Foundation
 
@@ -14,3 +15,4 @@ public extension CLLocationCoordinate2D {
             .distance(from: .init(latitude: coordinate.latitude, longitude: coordinate.longitude))
     }
 }
+#endif

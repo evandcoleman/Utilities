@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 11/28/21.
 //
 
+#if canImport(CoreLocation)
 import CoreLocation
 import Foundation
 
@@ -27,3 +28,4 @@ public extension CLPlacemark {
         }
     }
 }
+#endif

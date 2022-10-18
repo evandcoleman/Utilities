@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/8/22.
 //
 
+#if canImport(WebKit)
 import Foundation
 import WebKit
 
@@ -29,3 +30,4 @@ extension WKWebViewConfiguration {
         }
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Evan Coleman. All rights reserved.
 //
 
+#if canImport(Contacts)
 import Contacts
 import Foundation
 
@@ -44,3 +45,4 @@ public struct Formatters {
         }
     }
 }
+#endif

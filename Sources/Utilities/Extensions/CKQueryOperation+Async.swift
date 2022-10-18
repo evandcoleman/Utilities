@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 11/30/21.
 //
 
+#if canImport(CloudKit)
 import CloudKit
 
 public extension CKQueryOperation {
@@ -30,3 +31,4 @@ public extension CKQueryOperation {
         }
     }
 }
+#endif

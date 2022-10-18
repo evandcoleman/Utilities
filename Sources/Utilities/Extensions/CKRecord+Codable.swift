@@ -5,6 +5,7 @@
 //  Created by Evan Coleman on 6/13/22.
 //
 
+#if canImport(CloudKit)
 import CloudKit
 import Foundation
 
@@ -269,3 +270,4 @@ extension _CKDecoder.KeyedContainer: KeyedDecodingContainerProtocol {
 }
 
 extension _CKDecoder.KeyedContainer: CKDecodingContainer {}
+#endif

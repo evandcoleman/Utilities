@@ -6,6 +6,7 @@
 //
 
 #if canImport(UIKit)
+#if canImport(CoreLocation)
 import CoreLocation
 import MapKit
 import UIKit
@@ -61,4 +62,5 @@ public extension MKCoordinateRegion {
         return MKCoordinateRegion(MKMapRect(x: rect.origin.x, y: rect.origin.y, width: rect.width, height: rect.height))
     }
 }
+#endif
 #endif
