@@ -6,6 +6,7 @@
 //  Copyright © 2020 Evan Coleman. All rights reserved.
 //
 
+#if canImport(Combine)
 import Combine
 
 public final class CancelBag {
@@ -24,3 +25,4 @@ extension AnyCancellable {
         bag.cancellables.insert(self)
     }
 }
+#endif

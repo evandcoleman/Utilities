@@ -5,7 +5,7 @@
 //  Created by Evan Coleman on 12/5/21.
 //
 
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && canImport(Combine)
 import Combine
 import SwiftUI
 
