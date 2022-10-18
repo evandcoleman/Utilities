@@ -7,6 +7,7 @@
 
 #if canImport(SwiftUI)
 import SwiftUI
+import Utilities
 
 extension View {
     public func onChange<T: Equatable>(of value: T, throttle: TimeInterval, perform action: @escaping (T) -> Void) -> some View {
@@ -32,7 +33,6 @@ public struct ThrottledOnChangeViewModifier<Value: Equatable>: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .onChange(of: value) { newValue in
-                log.debug(Date.now.timeIntervalSince1970 - lastChangedAt.timeIntervalSince1970)
                 guard Date.now.timeIntervalSince1970 - lastChangedAt.timeIntervalSince1970 >= throttle else { return }
 
                 lastChangedAt = Date.now

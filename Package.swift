@@ -13,6 +13,10 @@ let package = Package(
             name: "Utilities",
             targets: ["Utilities"]
         ),
+        .library(
+            name: "Utilities-SwiftUI",
+            targets: ["Utilities-SwiftUI"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", from: "3.3.2"),
@@ -21,7 +25,11 @@ let package = Package(
     targets: [
         .target(
             name: "Utilities",
-            dependencies: ["SFSafeSymbols", .product(name: "Introspect", package: "SwiftUI-Introspect")]
+            dependencies: []
+        ),
+        .target(
+            name: "Utilities-SwiftUI",
+            dependencies: ["Utilities", "SFSafeSymbols", .product(name: "Introspect", package: "SwiftUI-Introspect")]
         ),
         .testTarget(
             name: "UtilitiesTests",

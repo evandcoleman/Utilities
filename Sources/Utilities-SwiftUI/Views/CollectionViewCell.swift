@@ -5,6 +5,7 @@
 
 #if canImport(UIKit)
 import UIKit
+import Utilities
 
 public protocol CollectionViewCellProtocol {
     func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes

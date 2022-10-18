@@ -7,6 +7,7 @@
 
 #if canImport(SwiftUI)
 import SwiftUI
+import Utilities
 
 public struct ErrorAlert: Identifiable {
     public var id = UUID()
@@ -25,7 +26,7 @@ public class ErrorHandling: ObservableObject {
     public func handle(error: Error, file: String = #file, line: UInt = #line) {
         guard !error.isCancelled else { return }
 
-        log.error(file: file, line: line, error)
+        Log.error(file: file, line: line, error)
         currentAlert = ErrorAlert(message: error.localizedDescription, error: error)
     }
 }

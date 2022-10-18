@@ -5,6 +5,7 @@
 
 #if canImport(UIKit)
 import UIKit
+import Utilities
 
 final class TableViewCell<Subject: UIView>: UITableViewCell, Reusable where Subject: ReusableView {
     let subjectView = Subject()
