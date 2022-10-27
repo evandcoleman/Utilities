@@ -11,7 +11,7 @@ import Foundation
 import SwiftUI
 
 @propertyWrapper
-public struct CurrentLocation {
+public struct CurrentLocation: DynamicProperty {
 
     public var projectedValue: Coordinator = .init()
 
