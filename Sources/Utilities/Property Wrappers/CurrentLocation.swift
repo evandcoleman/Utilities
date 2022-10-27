@@ -29,9 +29,9 @@ public struct CurrentLocation {
 }
 
 public extension CurrentLocation {
-    class Coordinator: NSObject, CLLocationManagerDelegate {
+    class Coordinator: NSObject, CLLocationManagerDelegate, ObservableObject {
 
-        public var location: CLLocation?
+        @Published public var location: CLLocation?
 
         public var binding: Binding<CLLocation?> {
             return .init(get: { self.location }, set: { self.location = $0 })
