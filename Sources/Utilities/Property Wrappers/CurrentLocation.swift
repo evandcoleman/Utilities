@@ -13,6 +13,7 @@ import SwiftUI
 @propertyWrapper
 public struct CurrentLocation: DynamicProperty {
 
+    @StateObject
     public var projectedValue: Coordinator = .init()
 
     public var wrappedValue: CLLocation? {
@@ -20,7 +21,7 @@ public struct CurrentLocation: DynamicProperty {
     }
 
     public init(projectedValue: Coordinator) {
-        self.projectedValue = projectedValue
+        self._projectedValue = .init(wrappedValue: projectedValue)
     }
 
     public init(wrappedValue: CLLocation?) {
@@ -32,10 +33,6 @@ public extension CurrentLocation {
     class Coordinator: NSObject, CLLocationManagerDelegate, ObservableObject {
 
         @Published public var location: CLLocation?
-
-        public var binding: Binding<CLLocation?> {
-            return .init(get: { self.location }, set: { self.location = $0 })
-        }
 
         private let locationManager: CLLocationManager
 
