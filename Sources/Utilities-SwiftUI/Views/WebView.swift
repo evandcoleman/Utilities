@@ -12,13 +12,45 @@ import WebKit
 
 public struct WebView: UIViewRepresentable {
 
-    var urlRequest: URLRequest
+    public enum Content {
+        case urlRequest(URLRequest)
+        case htmlString(String, baseURL: URL? = nil)
+    }
+
+    var content: Content
     var currentURLRequest: Binding<URLRequest?>?
     var configuration: WKWebViewConfiguration
     var configure: ((WKWebView) -> Void)?
 
-    public init(urlRequest: URLRequest, currentURLRequest: Binding<URLRequest?>? = nil, configuration: WKWebViewConfiguration, configure: ((WKWebView) -> Void)? = nil) {
-        self.urlRequest = urlRequest
+    public init(htmlString: String, baseURL: URL? = nil, currentURLRequest: Binding<URLRequest?>? = nil, configuration: WKWebViewConfiguration = .init(), configure: ((WKWebView) -> Void)? = nil) {
+        self.init(
+            content: .htmlString(htmlString, baseURL: baseURL),
+            currentURLRequest: currentURLRequest,
+            configuration: configuration,
+            configure: configure
+        )
+    }
+
+    public init(url: URL, currentURLRequest: Binding<URLRequest?>? = nil, configuration: WKWebViewConfiguration = .init(), configure: ((WKWebView) -> Void)? = nil) {
+        self.init(
+            urlRequest: URLRequest(url: url),
+            currentURLRequest: currentURLRequest,
+            configuration: configuration,
+            configure: configure
+        )
+    }
+
+    public init(urlRequest: URLRequest, currentURLRequest: Binding<URLRequest?>? = nil, configuration: WKWebViewConfiguration = .init(), configure: ((WKWebView) -> Void)? = nil) {
+        self.init(
+            content: .urlRequest(urlRequest),
+            currentURLRequest: currentURLRequest,
+            configuration: configuration,
+            configure: configure
+        )
+    }
+
+    public init(content: Content, currentURLRequest: Binding<URLRequest?>? = nil, configuration: WKWebViewConfiguration = .init(), configure: ((WKWebView) -> Void)? = nil) {
+        self.content = content
         self.currentURLRequest = currentURLRequest
         self.configuration = configuration
         self.configure = configure
@@ -31,7 +63,12 @@ public struct WebView: UIViewRepresentable {
     public func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero, configuration: configuration)
         configure?(webView)
-        webView.load(urlRequest)
+        switch content {
+        case .urlRequest(let request):
+            webView.load(request)
+        case .htmlString(let htmlString, let baseURL):
+            webView.loadHTMLString(htmlString, baseURL: baseURL)
+        }
 
         return webView
     }
