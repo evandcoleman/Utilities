@@ -74,7 +74,9 @@ public struct WebView: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: WKWebView, context: Context) {
-        uiView.navigationDelegate = context.coordinator
+        if uiView.navigationDelegate == nil {
+            uiView.navigationDelegate = context.coordinator
+        }
     }
 }
 
